@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/AGEditor-Icon.ico</file>
+        <file>img/notepad_pencil_icon-icons.com_60562.png</file>
+        <file>img/notepad_pencil_icon-icons.com_60562 (1).png</file>
+    </qresource>
+    <qresource prefix="/new/themes">
+        <file>LightTheme.qss</file>
+        <file>DarkTheme.qss</file>
+    </qresource>
+</RCC>

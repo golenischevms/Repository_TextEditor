@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TextEditor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/img/AGEditor-Icon.ico</normaloff>:/img/AGEditor-Icon.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTextEdit" name="textEdit">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="lineWrapMode">
+       <enum>QTextEdit::NoWrap</enum>
+      </property>
+      <property name="acceptRichText">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;Файл</string>
+    </property>
+    <addaction name="action_New"/>
+    <addaction name="action_New_Window"/>
+    <addaction name="separator"/>
+    <addaction name="action_Open"/>
+    <addaction name="action_Save"/>
+    <addaction name="action_Save_As"/>
+    <addaction name="separator"/>
+    <addaction name="actionPrint"/>
+    <addaction name="separator"/>
+    <addaction name="action_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Правка</string>
+    </property>
+    <addaction name="action_Undo"/>
+    <addaction name="action_Redo"/>
+    <addaction name="separator"/>
+    <addaction name="action_Cut"/>
+    <addaction name="action_Copy"/>
+    <addaction name="action_Paste"/>
+    <addaction name="action_Delete"/>
+    <addaction name="separator"/>
+    <addaction name="action_Select_All"/>
+    <addaction name="action_Date_Time"/>
+    <addaction name="separator"/>
+    <addaction name="action_Search_with_Google"/>
+    <addaction name="action_Search_with_Bing"/>
+    <addaction name="action_Search_with_Yahoo"/>
+   </widget>
+   <widget class="QMenu" name="menuFormat">
+    <property name="title">
+     <string>&amp;Формат</string>
+    </property>
+    <addaction name="action_Word_Wrap"/>
+    <addaction name="separator"/>
+    <addaction name="action_Font"/>
+    <addaction name="action_Color"/>
+    <addaction name="separator"/>
+    <addaction name="action_Uppercase"/>
+    <addaction name="action_Lowercase"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Справка</string>
+    </property>
+    <addaction name="action_GitHub_repository"/>
+    <addaction name="separator"/>
+    <addaction name="action_Discord_support"/>
+    <addaction name="separator"/>
+    <addaction name="action_About"/>
+   </widget>
+   <widget class="QMenu" name="menu_Settings">
+    <property name="title">
+     <string>&amp;Настройки</string>
+    </property>
+    <widget class="QMenu" name="menu_Menu_Bar">
+     <property name="title">
+      <string>&amp;Меню</string>
+     </property>
+     <addaction name="action_menubar_Appearance"/>
+     <addaction name="action_menubar_Appearance_Reset_to_default"/>
+     <addaction name="separator"/>
+     <addaction name="action_menubar_Font"/>
+     <addaction name="action_menubar_Font_Color"/>
+    </widget>
+    <widget class="QMenu" name="menu_Text_Edit">
+     <property name="title">
+      <string>&amp;Редактор</string>
+     </property>
+     <widget class="QMenu" name="menu_Frame_Shape">
+      <property name="title">
+       <string>&amp;Frame Shape</string>
+      </property>
+      <addaction name="action_Box"/>
+      <addaction name="action_Panel"/>
+      <addaction name="action_Win_Panel"/>
+      <addaction name="action_Styled_Panel"/>
+      <addaction name="action_No_Frame"/>
+     </widget>
+     <addaction name="action_textEdit_Appearance"/>
+     <addaction name="action_textEdit_Reset_to_default"/>
+     <addaction name="separator"/>
+     <addaction name="menu_Frame_Shape"/>
+    </widget>
+    <widget class="QMenu" name="menu_Widget">
+     <property name="title">
+      <string>&amp;Окно программы</string>
+     </property>
+     <widget class="QMenu" name="menuGUI_Style">
+      <property name="title">
+       <string>Стиль приложения</string>
+      </property>
+      <addaction name="action_gui_style_Fusion"/>
+      <addaction name="action_gui_style_Windows_old"/>
+      <addaction name="action_gui_style_Windows_new"/>
+     </widget>
+     <addaction name="action_widget_Appearance"/>
+     <addaction name="action_widget_Appearance_Reset_to_default"/>
+     <addaction name="separator"/>
+     <addaction name="menuGUI_Style"/>
+    </widget>
+    <widget class="QMenu" name="menu_Scroll_Bar">
+     <property name="title">
+      <string>&amp;Полосы прокуртки</string>
+     </property>
+     <addaction name="action_Vertical"/>
+     <addaction name="action_Horizontal"/>
+     <addaction name="action_Both"/>
+     <addaction name="action_None"/>
+    </widget>
+    <widget class="QMenu" name="menu_Status_Bar">
+     <property name="title">
+      <string>&amp;Информационная панель</string>
+     </property>
+     <widget class="QMenu" name="menu_Word_Counter">
+      <property name="title">
+       <string>&amp;Счетчик слов</string>
+      </property>
+      <addaction name="action_Word_Counter_On"/>
+      <addaction name="action_Word_Counter_Off"/>
+     </widget>
+     <widget class="QMenu" name="menu_Character_Counter">
+      <property name="title">
+       <string>&amp;Счетчик символов</string>
+      </property>
+      <addaction name="action_Character_Counter_On"/>
+      <addaction name="action_Character_Counter_Off"/>
+     </widget>
+     <widget class="QMenu" name="menu_Lines_Counter">
+      <property name="title">
+       <string>&amp;Счетчик строк</string>
+      </property>
+      <addaction name="action_Lines_Counter_On"/>
+      <addaction name="action_Lines_Counter_Off"/>
+     </widget>
+     <addaction name="action_statusBar_On"/>
+     <addaction name="action_statusBar_Off"/>
+     <addaction name="separator"/>
+     <addaction name="action_statusBar_Appearance"/>
+     <addaction name="action_statusBar_Reset_to_default"/>
+     <addaction name="separator"/>
+     <addaction name="action_statusBar_Font"/>
+     <addaction name="action_statusBar_Font_Color"/>
+     <addaction name="separator"/>
+     <addaction name="menu_Word_Counter"/>
+     <addaction name="menu_Character_Counter"/>
+     <addaction name="menu_Lines_Counter"/>
+    </widget>
+    <addaction name="menu_Widget"/>
+    <addaction name="menu_Text_Edit"/>
+    <addaction name="menu_Menu_Bar"/>
+    <addaction name="menu_Status_Bar"/>
+    <addaction name="menu_Scroll_Bar"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuFormat"/>
+   <addaction name="menu_Settings"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+  </widget>
+  <action name="action_New">
+   <property name="text">
+    <string>&amp;Новый</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="action_Open">
+   <property name="text">
+    <string>&amp;Открыть ...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_Save">
+   <property name="text">
+    <string>&amp;Сохранить</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_Save_As">
+   <property name="text">
+    <string>&amp;Сохранить как ...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+S</string>
+   </property>
+  </action>
+  <action name="action_Paste">
+   <property name="text">
+    <string>&amp;Вставить</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="action_Copy">
+   <property name="text">
+    <string>&amp;Копировать</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="action_Cut">
+   <property name="text">
+    <string>&amp;Вырезать</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="action_Undo">
+   <property name="text">
+    <string>&amp;Отменить</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="action_Redo">
+   <property name="text">
+    <string>&amp;Повторить</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Z</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>&amp;О программе</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="text">
+    <string>&amp;Выйти из приложения</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+F4</string>
+   </property>
+  </action>
+  <action name="action_Font">
+   <property name="text">
+    <string>&amp;Шрифт</string>
+   </property>
+  </action>
+  <action name="action_Color">
+   <property name="text">
+    <string>&amp;Цвет текста</string>
+   </property>
+  </action>
+  <action name="action_Delete">
+   <property name="text">
+    <string>&amp;Удалить</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="action_Select_All">
+   <property name="text">
+    <string>&amp;Выделить все</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="text">
+    <string>&amp;Печать</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="action_GitHub_repository">
+   <property name="text">
+    <string>&amp;GitHub репозиторий</string>
+   </property>
+  </action>
+  <action name="action_GitHub_releases">
+   <property name="text">
+    <string>&amp;GitHub releases</string>
+   </property>
+  </action>
+  <action name="action_Telegram_support">
+   <property name="text">
+    <string>&amp;Telegram support</string>
+   </property>
+  </action>
+  <action name="action_Search_with_Google">
+   <property name="text">
+    <string>&amp;Поиск выделенного в Google</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+X</string>
+   </property>
+  </action>
+  <action name="action_Search_with_Bing">
+   <property name="text">
+    <string>&amp;Искать выделенное с Bing</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+B</string>
+   </property>
+  </action>
+  <action name="action_Search_with_DuckDuckGo">
+   <property name="text">
+    <string>&amp;Search with DuckDuckGo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+D</string>
+   </property>
+  </action>
+  <action name="action_Search_with_Yahoo">
+   <property name="text">
+    <string>&amp;Искать выделенное в Яндексе</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Y</string>
+   </property>
+  </action>
+  <action name="action_New_Window">
+   <property name="text">
+    <string>&amp;Новое окно</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+N</string>
+   </property>
+  </action>
+  <action name="action_Date_Time">
+   <property name="text">
+    <string>&amp;Втавка даты и времени</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="action_Find">
+   <property name="text">
+    <string>&amp;Find</string>
+   </property>
+  </action>
+  <action name="action_Find_Next">
+   <property name="text">
+    <string>&amp;Find Next</string>
+   </property>
+  </action>
+  <action name="action_Replace">
+   <property name="text">
+    <string>&amp;Replace</string>
+   </property>
+  </action>
+  <action name="action_Discord_support">
+   <property name="text">
+    <string>&amp;Discord поддержка</string>
+   </property>
+  </action>
+  <action name="action_Uppercase">
+   <property name="text">
+    <string>&amp;Верхний регистр</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="action_Lowercase">
+   <property name="text">
+    <string>&amp;Нижний регистр</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+U</string>
+   </property>
+  </action>
+  <action name="action_menubar_Appearance">
+   <property name="text">
+    <string>&amp;Цвет меню</string>
+   </property>
+  </action>
+  <action name="action_menubar_Font">
+   <property name="text">
+    <string>&amp;Шрифт</string>
+   </property>
+  </action>
+  <action name="action_menubar_Font_Color">
+   <property name="text">
+    <string>&amp;Цвет шрифта</string>
+   </property>
+  </action>
+  <action name="action_textEdit_Appearance">
+   <property name="text">
+    <string>&amp;Цвет редактора</string>
+   </property>
+  </action>
+  <action name="action_widget_Appearance">
+   <property name="text">
+    <string>&amp;Цвет</string>
+   </property>
+  </action>
+  <action name="action_widget_Appearance_Reset_to_default">
+   <property name="text">
+    <string>&amp;Сброс настроек</string>
+   </property>
+  </action>
+  <action name="action_menubar_Appearance_Reset_to_default">
+   <property name="text">
+    <string>&amp;Сброс настроек</string>
+   </property>
+  </action>
+  <action name="action_Word_Wrap">
+   <property name="text">
+    <string>&amp;Автоперенос строки</string>
+   </property>
+  </action>
+  <action name="action_Vertical">
+   <property name="text">
+    <string>&amp;Вертикальная</string>
+   </property>
+  </action>
+  <action name="action_Horizontal">
+   <property name="text">
+    <string>&amp;Горизонтальная</string>
+   </property>
+  </action>
+  <action name="action_Both">
+   <property name="text">
+    <string>&amp;Все</string>
+   </property>
+  </action>
+  <action name="action_None">
+   <property name="text">
+    <string>&amp;Нет</string>
+   </property>
+  </action>
+  <action name="action_Box">
+   <property name="text">
+    <string>&amp;Box</string>
+   </property>
+  </action>
+  <action name="action_Panel">
+   <property name="text">
+    <string>&amp;Panel</string>
+   </property>
+  </action>
+  <action name="action_Win_Panel">
+   <property name="text">
+    <string>&amp;Win Panel</string>
+   </property>
+  </action>
+  <action name="action_Styled_Panel">
+   <property name="text">
+    <string>&amp;Styled Panel</string>
+   </property>
+  </action>
+  <action name="action_No_Frame">
+   <property name="text">
+    <string>&amp;No Frame</string>
+   </property>
+  </action>
+  <action name="action_textEdit_Reset_to_default">
+   <property name="text">
+    <string>&amp;Сброс настроек</string>
+   </property>
+  </action>
+  <action name="action_statusBar_On">
+   <property name="text">
+    <string>&amp;Включить</string>
+   </property>
+  </action>
+  <action name="action_statusBar_Off">
+   <property name="text">
+    <string>&amp;Выключить</string>
+   </property>
+  </action>
+  <action name="action_Word_Counter_On">
+   <property name="text">
+    <string>&amp;Включить</string>
+   </property>
+  </action>
+  <action name="action_Word_Counter_Off">
+   <property name="text">
+    <string>&amp;Выключить</string>
+   </property>
+  </action>
+  <action name="action_Character_Counter_On">
+   <property name="text">
+    <string>&amp;Включить</string>
+   </property>
+  </action>
+  <action name="action_Character_Counter_Off">
+   <property name="text">
+    <string>&amp;Выключить</string>
+   </property>
+  </action>
+  <action name="action_Lines_Counter_On">
+   <property name="text">
+    <string>&amp;Включить</string>
+   </property>
+  </action>
+  <action name="action_Lines_Counter_Off">
+   <property name="text">
+    <string>&amp;Выключить</string>
+   </property>
+  </action>
+  <action name="action_statusBar_Font">
+   <property name="text">
+    <string>&amp;Шрифт</string>
+   </property>
+  </action>
+  <action name="action_statusBar_Font_Color">
+   <property name="text">
+    <string>&amp;Цвет шрифта</string>
+   </property>
+  </action>
+  <action name="action_statusBar_Appearance">
+   <property name="text">
+    <string>&amp;Цвет панели</string>
+   </property>
+  </action>
+  <action name="action_statusBar_Reset_to_default">
+   <property name="text">
+    <string>&amp;Сброс настроек</string>
+   </property>
+  </action>
+  <action name="action_gui_style_Fusion">
+   <property name="text">
+    <string>&amp;Fusion</string>
+   </property>
+  </action>
+  <action name="action_gui_style_Windows_old">
+   <property name="text">
+    <string>&amp;Windows (old)</string>
+   </property>
+   <property name="toolTip">
+    <string>Windows (old)</string>
+   </property>
+  </action>
+  <action name="action_gui_style_Windows_new">
+   <property name="text">
+    <string>&amp;Windows (new)</string>
+   </property>
+   <property name="toolTip">
+    <string>Windows (new)</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
